@@ -1345,6 +1345,109 @@
   .s-chip-a{background:#EFF6FF;color:var(--blue);font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:4px;}
   .s-chip-n{background:#FFF3E0;color:var(--orange);font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:4px;}
   .s-chip-d{background:var(--blue-soft);color:var(--blue);font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:4px;}
+
+
+/* === SORTER — RESUMO EXECUTIVO SUPERIOR === */
+.sorter-summary{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  margin:18px 0 18px;
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.sorter-summary-item{
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:14px;
+  align-items:center;
+  min-height:116px;
+  padding:20px 24px;
+  position:relative;
+}
+.sorter-summary-item:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:22px;
+  bottom:22px;
+  width:1px;
+  background:#DDE5F1;
+}
+.sorter-summary-icon{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  border:1px solid transparent;
+  position:relative;
+  overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72), 0 8px 18px rgba(16,24,40,.045);
+}
+.sorter-summary-icon::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 18%, rgba(255,255,255,.72), transparent 56%);
+  pointer-events:none;
+}
+.sorter-summary-icon svg{
+  width:32px;
+  height:32px;
+  position:relative;
+  z-index:1;
+  stroke:currentColor;
+  stroke-width:1.9;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.sorter-summary-icon.blue{background:linear-gradient(135deg,#EAF1FF 0%,#DDEAFF 100%);color:#0A4DB3;border-color:#C9DAFB;}
+.sorter-summary-icon.green{background:linear-gradient(135deg,#E8F6EE 0%,#DAF2E5 100%);color:#159455;border-color:#A6E0BD;}
+.sorter-summary-icon.orange{background:linear-gradient(135deg,#FFF4E6 0%,#FFE9C8 100%);color:#D97706;border-color:#FACC8A;}
+.sorter-summary-icon.purple{background:linear-gradient(135deg,#F2EAFE 0%,#E9D7FE 100%);color:#7E22CE;border-color:#D8B4FE;}
+.sorter-summary-label{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#53627A;
+  margin-bottom:7px;
+}
+.sorter-summary-value{
+  font-family:Sora,sans-serif;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-.035em;
+  line-height:1;
+  color:#06204F;
+  font-variant-numeric:tabular-nums;
+}
+.sorter-summary-sub{
+  margin-top:8px;
+  font-size:13px;
+  color:#667085;
+  font-weight:700;
+  line-height:1.25;
+}
+.sorter-summary-sub strong{color:#06204F;font-weight:900;}
+@media(max-width:1200px){
+  .sorter-summary{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .sorter-summary-item:nth-child(2)::after{display:none;}
+  .sorter-summary-item:nth-child(-n+2){border-bottom:1px solid #EEF1F7;}
+}
+@media(max-width:700px){
+  .sorter-summary{grid-template-columns:1fr;}
+  .sorter-summary-item{min-height:96px;padding:16px 18px;}
+  .sorter-summary-item::after{display:none!important;}
+  .sorter-summary-item:not(:last-child){border-bottom:1px solid #EEF1F7;}
+  .sorter-summary-value{font-size:26px;}
+}
+
   /* Bars view */
   .sorter-bars{display:flex;flex-direction:column;gap:0;}
   .sb-row{display:flex;align-items:flex-start;gap:0;padding:14px 0;border-bottom:1px solid var(--border-soft);}
@@ -2016,6 +2119,74 @@
   .tut-img{height:160px!important}
 }
 
+
+
+/* === NOVA IMAGEM COMPLETA DA SUGESTÃO DE MAPA — SOMENTE CAPTURA, NÃO ALTERA A TELA === */
+.smx-page{padding:22px!important;}
+.smx-hero{border-radius:20px;padding:24px 28px;background:linear-gradient(120deg,#071F55 0%,#0A3477 48%,#0F9F6E 100%);color:#fff;display:grid;grid-template-columns:1fr 1.65fr;gap:28px;align-items:center;box-shadow:0 16px 34px rgba(10,46,115,.20);margin-bottom:18px;}
+.smx-hero-text{border-right:1px solid rgba(255,255,255,.32);padding-right:26px;}
+.smx-hero-text b{display:block;font-size:21px;line-height:1.22;font-weight:900;}
+.smx-hero-text p{margin:15px 0 8px;font-family:Sora,sans-serif;font-size:34px;font-weight:900;letter-spacing:-.04em;line-height:1;}
+.smx-hero-text p span{font-size:36px;}
+.smx-hero-text small{font-size:14px;font-weight:900;color:rgba(255,255,255,.92);}
+.smx-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.smx-kpis div{height:110px;border:1px solid rgba(255,255,255,.24);border-radius:16px;background:rgba(255,255,255,.10);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.smx-kpis .ideal,.smx-kpis .gain{background:rgba(22,121,76,.24);}
+.smx-kpis small{font-size:10.5px;font-weight:900;letter-spacing:.06em;color:rgba(255,255,255,.86);line-height:1.15;}
+.smx-kpis b{font-family:Sora,sans-serif;font-size:32px;font-weight:900;letter-spacing:-.045em;line-height:1.02;margin:4px 0;}
+.smx-cenario-row{display:grid;grid-template-columns:1fr 1fr 300px;gap:14px;margin-bottom:14px;}
+.smx-card{background:rgba(255,255,255,.94);border:1px solid #DDE5F1;border-radius:18px;box-shadow:0 8px 20px rgba(16,24,40,.055);padding:16px;}
+.smx-card h3{font-family:Sora,sans-serif;font-size:14px;font-weight:900;margin:0 0 12px;color:#0A2E73;}
+.smx-card h3 span{display:inline-flex;margin-left:6px;padding:4px 9px;border-radius:999px;font-size:9px;color:#fff;background:#C21B13;vertical-align:middle;}
+.smx-card.greenline h3{color:#087443}.smx-card.greenline h3 span{background:#087443;}
+.smx-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #E3E8F1;border-radius:13px;overflow:hidden;background:#fff;}
+.smx-pair>div{padding:13px 14px;min-height:132px;border-right:1px solid #E3E8F1;}
+.smx-pair>div:last-child{border-right:0;}
+.smx-pair small{display:block;font-size:10px;color:#526383;font-weight:900;letter-spacing:.04em;}
+.smx-pair b{display:block;font-family:Sora,sans-serif;font-size:20px;color:#0B1F4D;margin-top:7px;}
+.smx-pair strong{display:block;font-size:13px;color:#0B1F4D;margin-top:2px;}
+.smx-pair em{display:block;font-family:Sora,sans-serif;font-style:normal;font-size:24px;font-weight:900;margin-top:12px;line-height:1;}
+.smx-pair label{display:block;font-size:11px;font-weight:800;color:#243B6B;margin-top:4px;}
+.smx-card footer{margin-top:12px;border-radius:13px;background:#FFF7F7;border:1px solid #F4B6B3;min-height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.smx-card.greenline footer{background:#F6FFFA;border-color:#B7E7C8;}
+.smx-card footer small{font-size:11px;color:#0B1F4D;font-weight:900;letter-spacing:.06em;}
+.smx-card footer b{font-family:Sora,sans-serif;font-size:38px;font-weight:900;line-height:1;margin:5px 0;}
+.smx-card footer span{font-size:11px;font-weight:800;color:#243B6B;}
+.smx-card.gainbox{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:268px;background:linear-gradient(180deg,#FFFFFF 0%,#F8FBFF 100%);}
+.smx-card.gainbox h3{align-self:flex-start;color:#0A2E73;}
+.smx-card.gainbox>b{font-family:Sora,sans-serif;font-size:74px;font-weight:900;color:#0A45B8;line-height:1;margin:12px 0 4px;}
+.smx-card.gainbox strong{font-size:14px;color:#0A2E73;font-weight:900;line-height:1.25;}
+.smx-card.gainbox p{margin:18px 0 0;display:flex;gap:10px;align-items:center;justify-content:center;}
+.smx-card.gainbox p span{padding:8px 12px;border-radius:10px;background:#fff;border:1px solid #DDE5F1;font-family:Sora,sans-serif;font-weight:900;color:#0A2E73;}
+.smx-card.gainbox p i{font-style:normal;color:#667085;font-weight:900;}
+.smx-critical-row{display:grid;grid-template-columns:1fr 270px;gap:14px;background:rgba(255,255,255,.94);border:1px solid #DDE5F1;border-radius:18px;box-shadow:0 8px 20px rgba(16,24,40,.055);padding:16px;margin-bottom:14px;}
+.smx-critical-row h3,.smx-ramp-overview h3{font-family:Sora,sans-serif;font-size:15px;font-weight:900;color:#0A2E73;margin:0 0 12px;}
+.smx-critical-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.smx-critical{border:1px solid #E3E8F1;border-radius:14px;background:#fff;padding:13px 14px;min-height:116px;}
+.smx-critical.red{background:#FFF7F7;border-color:#F4B6B3}.smx-critical.orange{background:#FFFBF1;border-color:#FACC8A}.smx-critical.green{background:#F6FFFA;border-color:#B7E7C8}
+.smx-critical div{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;}
+.smx-critical b{font-family:Sora,sans-serif;font-size:19px;color:#0B1F4D;}.smx-critical span{font-size:10px;color:#526383;font-weight:800;}
+.smx-critical strong{display:block;font-size:13px;color:#0B1F4D;margin-top:8px;}.smx-critical em{display:block;font-family:Sora,sans-serif;font-size:26px;font-style:normal;font-weight:900;margin-top:5px;}.smx-critical small{font-size:11px;color:#243B6B;font-weight:800;}
+.smx-critical-row aside{border-left:1px solid #DDE5F1;padding-left:18px;display:flex;flex-direction:column;justify-content:center;}
+.smx-heat{display:flex;gap:4px;height:14px;margin:6px 0 16px;}.smx-heat i{flex:1;border-radius:99px;}.smx-heat i.red{background:#C21B13}.smx-heat i.orange{background:#F59E0B}.smx-heat i.green{background:#087443}
+.smx-critical-row aside p{font-size:16px;font-weight:900;color:#243B6B;margin:0;display:flex;justify-content:space-between;gap:8px;align-items:center;}
+.smx-critical-row aside p b{font-family:Sora,sans-serif;font-size:21px;}
+.smx-ramp-overview{background:rgba(255,255,255,.94);border:1px solid #DDE5F1;border-radius:18px;box-shadow:0 8px 20px rgba(16,24,40,.055);padding:16px;margin-bottom:14px;}
+.smx-ramp-overview h3 span{font-family:Manrope;font-size:12px;font-weight:800;color:#526383;margin-left:8px;}
+.smx-ramp-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border:1px solid #DDE5F1;border-radius:12px;overflow:hidden;background:#fff;}
+.smx-ramp{padding:11px 8px;border-right:1px solid #DDE5F1;min-height:166px;text-align:left;}.smx-ramp:last-child{border-right:0;}
+.smx-ramp-name b{display:block;font-family:Sora,sans-serif;font-size:15px;color:#0B1F4D;}.smx-ramp-name span{font-size:9.5px;color:#243B6B;font-weight:800;white-space:nowrap;}
+.smx-ramp strong{display:block;font-size:11px;color:#0B1F4D;font-weight:900;margin-top:12px;}.smx-ramp em{display:block;font-family:Sora,sans-serif;font-style:normal;font-size:22px;font-weight:900;margin-top:5px;line-height:1;}.smx-ramp small{display:block;font-size:9.7px;color:#243B6B;font-weight:800;margin-top:3px;min-height:24px;}.smx-ramp label{display:block;font-size:10px;color:#526383;font-weight:800;margin-top:8px;}
+.smx-bar{height:10px;background:#E9EEF5;border-radius:99px;overflow:hidden;margin-top:5px;}.smx-bar i{display:block;height:100%;border-radius:99px}.smx-bar .red{background:#C21B13}.smx-bar .orange{background:#F59E0B}.smx-bar .green{background:#087443}
+.smx-ramp-overview p,.smx-footnote{font-size:11px;color:#526383;font-weight:800;margin:10px 4px 0;text-align:left;}
+.smx-footnote{text-align:center;margin-top:12px;}
+
+/* === RESUMO EXECUTIVO UNIFICADO: mesmos cálculos da versão completa, menos blocos === */
+.smx-exec .smx-ramp-overview,
+.smx-exec .sm-conclusion{display:none!important;}
+.smx-exec .sm-moves table tbody tr:nth-child(n+5){display:none!important;}
+.smx-exec .sm-moves{margin-top:10px!important;}
+.smx-exec .smx-critical-row{margin-bottom:10px!important;}
 </style>
 
 <style>
@@ -2419,6 +2590,7 @@
             <button onclick="openSugModal()" style="height:32px;padding:0 14px;border-radius:8px;font-size:12px;font-weight:700;border:none;background:var(--blue);color:#fff;cursor:pointer;font-family:inherit;box-shadow:var(--shadow-sm)">📊 Sugestão de mapa</button>
           </div>
         </div>
+        <div id="sorter-summary" class="sorter-summary" style="display:none"></div>
         <div id="sorter-grid"></div>
       </div>
 
@@ -3795,11 +3967,100 @@ function setSorterView(v){
   renderSorterTab();
 }
 
+
+function renderSorterSummary(gs, sorterRows){
+  const el=document.getElementById('sorter-summary');
+  if(!el) return;
+  gs = Array.isArray(gs) ? gs : [];
+  sorterRows = Array.isArray(sorterRows) ? sorterRows : [];
+  if(!gs.length){ el.style.display='none'; el.innerHTML=''; return; }
+  const total = gs.reduce((a,g)=>a+Number(g.qtd||0),0);
+  const valor = gs.reduce((a,g)=>a+Number(g.valor||0),0);
+  const rampasValidas = gs.filter(g=>{
+    const n = Number(g.rmp);
+    return Number.isFinite(n) && n >= 1 && Number(g.qtd||0) > 0;
+  });
+  const rampasComDemanda = new Set(rampasValidas.map(g=>String(g.rmp))).size;
+  const rampasConfiguradas = new Set(Object.values(mapaRampas || {}).filter(Boolean).map(r=>String(r))).size;
+  const rampasTotal = Math.max(rampasConfiguradas || 0, rampasComDemanda);
+  const media = rampasComDemanda ? Math.round(total/rampasComDemanda) : 0;
+  const mediaValor = rampasComDemanda ? valor/rampasComDemanda : 0;
+  const alim = gs.reduce((a,g)=>a+Number(g.qa||0),0);
+  const naoAlim = gs.reduce((a,g)=>a+Number(g.qn||0),0);
+  const pctAlim = total ? Math.round(alim/total*100) : 0;
+  el.style.display='grid';
+  el.innerHTML = `
+    <div class="sorter-summary-item">
+      <div class="sorter-summary-icon blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 8.5 12 3 3 8.5v7L12 21l9-5.5v-7Z"/>
+          <path d="M3.4 8.7 12 14l8.6-5.3"/>
+          <path d="M12 14v7"/>
+          <path d="m7.8 6.1 8.5 5.2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sorter-summary-label">Volumetria total</div>
+        <div class="sorter-summary-value">${fmtInt(total)} vol</div>
+        <div class="sorter-summary-sub">${fmtMoney(valor)}</div>
+      </div>
+    </div>
+    <div class="sorter-summary-item">
+      <div class="sorter-summary-icon green" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 20h18"/>
+          <path d="M5 20V8.5L12 5l7 3.5V20"/>
+          <path d="M8 20v-7h5v7"/>
+          <path d="M15 16h2.8l1.2 2h1"/>
+          <path d="M16 18.5h.01"/>
+          <path d="M20 18.5h.01"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sorter-summary-label">Rampas com demanda</div>
+        <div class="sorter-summary-value">${fmtInt(rampasComDemanda)}</div>
+        <div class="sorter-summary-sub">de <strong>${fmtInt(rampasTotal)}</strong> rampas</div>
+      </div>
+    </div>
+    <div class="sorter-summary-item">
+      <div class="sorter-summary-icon orange" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19V9"/>
+          <path d="M10 19V5"/>
+          <path d="M16 19v-8"/>
+          <path d="M4 19h16"/>
+          <path d="m6 13 5-5 3 3 6-6"/>
+          <path d="M16 5h4v4"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sorter-summary-label">Média por rampa com demanda</div>
+        <div class="sorter-summary-value">${fmtInt(media)} vol</div>
+        <div class="sorter-summary-sub">${fmtMoney(mediaValor)}</div>
+      </div>
+    </div>
+    <div class="sorter-summary-item">
+      <div class="sorter-summary-icon purple" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3v9h9"/>
+          <path d="M21 12a9 9 0 1 1-9-9"/>
+          <circle cx="12" cy="12" r="3.2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="sorter-summary-label">Distribuição alimentar</div>
+        <div class="sorter-summary-value">${fmtInt(pctAlim)}%</div>
+        <div class="sorter-summary-sub">${fmtInt(alim)} vol alimentares</div>
+      </div>
+    </div>`;
+}
+
 function renderSorterTab(){
   const grid=document.getElementById('sorter-grid');
   if(!grid) return;
   const sorterRows=getFilteredBase().filter(r=>isSorter(r));
   if(!sorterRows.length){
+    renderSorterSummary([], []);
     grid.innerHTML='<div style="text-align:center;padding:48px 20px;color:var(--muted)"><div style="font-size:32px;margin-bottom:8px">🔀</div><div style="font-size:14px;font-weight:600;color:var(--gray)">Nenhuma carga Sorter</div><div style="font-size:12px;margin-top:4px">Carregue a base ou ajuste os filtros</div></div>';
     return;
   }
@@ -3814,6 +4075,7 @@ function renderSorterTab(){
   });
   const gs=Object.values(by).sort((a,b)=>b.qtd-a.qtd);
   const mx=Math.max(...gs.map(g=>g.qtd),1);
+  renderSorterSummary(gs, sorterRows);
 
   if(sorterView==='bars'){
     grid.className='sorter-bars';
@@ -3941,160 +4203,120 @@ function buildCompactSorterWhatsappHTML(payload){
 }
 
 
+function buildPremiumSorterWhatsappHTML_ORIGINAL(payload, modo){
+  // Resumo executivo agora usa a MESMA FONTE DE CÁLCULO da versão completa.
+  // Isso evita divergência entre: volume total, rampas com demanda, desvio atual, desvio sugerido e ganho.
+  var html = buildPremiumSorterWhatsappHTML(payload || window._mapaSugestaoPayload || {}, 'completo');
+  return String(html || '').replace('sm-page smx-page', 'sm-page smx-page smx-exec');
+}
+
+
+/* === VERSÃO COMPLETA — NOVO MODELO EXECUTIVO, SEM ALTERAR A SUGESTÃO DE MAPA DA TELA === */
 function buildPremiumSorterWhatsappHTML(payload, modo){
-  payload = payload || {};
-  const moves = payload.moves || payload.movs || payload.movimentacoes || payload.sugestoes || [];
-  const after = payload.after || payload.depois || payload.sugerido || [];
-  const before = payload.before || payload.antes || payload.atual || [];
-  const totalVol = payload.totalVol || payload.total || payload.volumeTotal || 13511;
-
-  const safeMoves = Array.isArray(moves) ? moves : [];
-  const topMoves = safeMoves.slice(0, modo === 'completo' ? 8 : 6);
-
-  function get(o, keys, fb){
-    for(const k of keys){ if(o && o[k] !== undefined && o[k] !== null && o[k] !== '') return o[k]; }
-    return fb;
+  modo = modo || 'executivo';
+  if(modo !== 'completo'){
+    return buildPremiumSorterWhatsappHTML_ORIGINAL(payload, modo);
   }
+
+  payload = payload || window._mapaSugestaoPayload || {};
+  var rules = (typeof getSorterRules === 'function') ? getSorterRules() : {idealVolumePerRampa:4000, maxVolumePerRampa:5000};
+  var ideal = Math.max(1, Number(rules.idealVolumePerRampa || 4000));
+  var capacidade = Math.max(ideal, Number(rules.maxVolumePerRampa || (ideal * 1.25)));
+  var sugs = payload.sugestoes || window._mapaSugestoes || [];
+  var gA = (payload.gruposAntes || []).map(function(g){return {rampa:String(g.rampa), volume:Number(g.volume||0), lojas:g.lojas||[]};});
+  var gD = ((payload.gruposDepois && payload.gruposDepois.length) ? payload.gruposDepois : (payload.gruposAntes || [])).map(function(g){return {rampa:String(g.rampa), volume:Number(g.volume||0), lojas:g.lojas||[]};});
+  var baseGroups = gD.length ? gD : gA;
+  var totalVol = baseGroups.reduce(function(a,g){return a+(Number(g.volume)||0);},0) || Number(payload.totalVol || 0);
+  var rampasAfetadas = new Set();
+  sugs.forEach(function(s){ rampasAfetadas.add(String(s.rampaAtual)); rampasAfetadas.add(String(s.rampaSugerida)); });
+  var qtdMov = sugs.length || 0;
+
   function nf(v){ return (Number(v)||0).toLocaleString('pt-BR'); }
-  function pct(v){ return Math.round(Number(v)||0) + '%'; }
+  function sinal(v){ return (Number(v)>0?'+':'') + Math.round(Number(v)||0) + '%'; }
+  function desvio(v){ return ((Number(v)||0) - ideal) / ideal * 100; }
+  function classeDev(d){ d=Number(d)||0; if(d>10) return 'red'; if(d>=-10) return 'orange'; return 'green'; }
+  function textoDev(d){ d=Number(d)||0; if(d>10) return 'acima da média'; if(d>=-10) return 'próximo da média'; return 'abaixo da média'; }
+  function tipoRampa(g){
+    var lojas = g.lojas || [];
+    var first = lojas[0] || {};
+    var c = first.classeLabel || first.classe || first.classeKey || first.pavilhao || '';
+    var label = '';
+    if(typeof getPtlClassLabel === 'function') label = getPtlClassLabel(c || first) || '';
+    if(!label){
+      var txt = String(c||'').toLowerCase();
+      if(txt.indexOf('não alimentar')>=0 || txt.indexOf('nao alimentar')>=0) label = 'Não Alimentar';
+      else if(txt.indexOf('alimentar')>=0) label = 'Alimentar';
+      else if(String(c).replace(/\D/g,'') === '1') label = 'Alimentar';
+      else if(String(c).replace(/\D/g,'') === '2') label = 'Não Alimentar';
+    }
+    return /sem pavilh/i.test(label) ? '' : label;
+  }
+  function labelRampa(g){
+    var t = tipoRampa(g);
+    return t ? '<span>'+t+'</span>' : '';
+  }
+  function stats(gs){
+    var arr = (gs||[]).filter(function(g){return g.rampa !== '?' && Number(g.volume||0)>0;});
+    if(!arr.length) return {maior:{rampa:'—',volume:0}, menor:{rampa:'—',volume:0}, maxPos:0, maxNeg:0};
+    var sortedVol = arr.slice().sort(function(a,b){return b.volume-a.volume;});
+    var sortedDev = arr.map(function(g){return Object.assign({}, g, {dev: desvio(g.volume)});});
+    var maxPos = sortedDev.slice().sort(function(a,b){return b.dev-a.dev;})[0] || {dev:0,rampa:'—',volume:0};
+    var maxNeg = sortedDev.slice().sort(function(a,b){return a.dev-b.dev;})[0] || {dev:0,rampa:'—',volume:0};
+    return {maior:sortedVol[0], menor:sortedVol[sortedVol.length-1], maxPos:maxPos, maxNeg:maxNeg};
+  }
+  var sa = stats(gA), sd = stats(gD);
+  var antes = Math.max(0, Math.round(sa.maxPos.dev || 0));
+  var depois = Math.max(0, Math.round(sd.maxPos.dev || 0));
+  var ganho = antes > 0 ? Math.max(0, Math.round(((antes - depois) / antes) * 100)) : 0;
 
-  const qtdMov = topMoves.length || 6;
-  const rampasAfetadas = 12;
-  const deseAntes = payload.desequilibrioAntes || payload.beforePct || 212;
-  const deseDepois = payload.desequilibrioDepois || payload.afterPct || 80;
-  const ganho = Math.abs(deseAntes - deseDepois);
-  const ganhoRel = Math.round((ganho / Math.max(deseAntes,1))*100);
+  var todasRampasComDemanda = baseGroups.slice().filter(function(g){return g.rampa !== '?' && Number(g.volume||0)>0;});
+  var qtdRampasComDemanda = todasRampasComDemanda.length;
+  var sortedRampas = todasRampasComDemanda.slice()
+    .sort(function(a,b){return b.volume-a.volume;}).slice(0,12);
+  var counts = {acima:0, proximas:0, abaixo:0};
+  sortedRampas.forEach(function(g){ var d=desvio(g.volume); if(d>10) counts.acima++; else if(d>=-10) counts.proximas++; else counts.abaixo++; });
+  var criticas = sortedRampas.filter(function(g){return desvio(g.volume)>10;}).slice(0,3);
+  if(!criticas.length) criticas = sortedRampas.slice(0,3);
 
-  const rampas = [
-    {r:'Rp 8', tipo:'Não Alim.', p:92, v:5411, c:'red'},
-    {r:'Rp 6', tipo:'Não Alim.', p:71, v:4180, c:'orange'},
-    {r:'Rp 5', tipo:'Não Alim.', p:65, v:3842, c:'orange'},
-    {r:'Rp 2', tipo:'Alimentar', p:50, v:2976, c:'orange'},
-    {r:'Rp 4', tipo:'Não Alim.', p:40, v:2376, c:'green'},
-    {r:'Rp 9', tipo:'Alimentar', p:37, v:2180, c:'green'},
-    {r:'Rp 7', tipo:'Não Alim.', p:34, v:1980, c:'green'},
-    {r:'Rp 3', tipo:'Não Alim.', p:16, v:2690, c:'green'},
-    {r:'Rp 1', tipo:'Não Alim.', p:28, v:1620, c:'green'},
-    {r:'Rp 10', tipo:'Alimentar', p:25, v:1480, c:'green'},
-    {r:'Rp 11', tipo:'Não Alim.', p:21, v:1210, c:'green'},
-    {r:'Rp 12', tipo:'Alimentar', p:17, v:980, c:'green'}
-  ];
-
-  const movementRows = topMoves.map((m,i)=>{
-    const loja = get(m,['loja','store','l'],'L' + (i+1));
-    const origem = get(m,['origem','from','de','rampaOrigem'],'Rp ' + [8,6,17,19,20,11,25,18][i%8]);
-    const destino = get(m,['destino','to','para','rampaDestino'],'Rp ' + [2,9,24,15,14,21,4,6][i%8]);
-    const vol = get(m,['volume','vol','qtd','valor'],[3338,2975,2407,2257,1564,970,850,740][i%8]);
-    const impacto = i < 2 ? 'Alto' : (i < 4 ? 'Médio' : 'Baixo');
-    const motivo = [
-      'Reduz pico da maior rampa',
-      'Distribui volume para rampa ociosa',
-      'Balanceamento entre setores',
-      'Melhora utilização das rampas',
-      'Ajuste fino de equalização',
-      'Pequeno ajuste operacional',
-      'Reduz concentração de volume',
-      'Equaliza fluxo por pavilhão'
-    ][i%8];
-    return `
-      <tr>
-        <td>${i+1}</td>
-        <td><b>${loja}</b></td>
-        <td><span class="sm-tag red">${origem}</span> <span class="sm-arrow">→</span> <span class="sm-tag green">${destino}</span></td>
-        <td><b>${nf(vol)}</b></td>
-        <td><span class="sm-impact ${impacto==='Alto'?'high':impacto==='Médio'?'mid':'low'}">${impacto}</span></td>
-        <td>${motivo}</td>
-      </tr>`;
+  var criticalCards = criticas.map(function(g){
+    var d=desvio(g.volume), c=classeDev(d);
+    return '<div class="smx-critical '+c+'"><div><b>Rp '+g.rampa+'</b>'+labelRampa(g)+'</div><strong>'+nf(g.volume)+' vol</strong><em>'+sinal(d)+'</em><small>'+textoDev(d)+'</small></div>';
   }).join('');
 
-  const rampCards = rampas.map(x=>`
-    <div class="sm-ramp">
-      <div class="sm-ramp-top"><b>${x.r}</b><span>${x.tipo}</span></div>
-      <div class="sm-ramp-pct ${x.c}">${x.p}%</div>
-      <div class="sm-ramp-bar"><i class="${x.c}" style="width:${Math.min(x.p,100)}%"></i></div>
-      <small>${nf(x.v)} vol</small>
-    </div>`).join('');
+  var heat = sortedRampas.map(function(g){return '<i class="'+classeDev(desvio(g.volume))+'"></i>';}).join('');
 
-  return `
-  <div class="sm-page">
-    <div class="sm-header">
-      <div>
-        <div class="sm-title">Sugestão de Mapa Equalizado</div>
-        <div class="sm-sub">Snapshot operacional • ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</div>
-      </div>
-      <div class="sm-meta"><span>📦 ${nf(totalVol)} volumes</span><span>🛣️ 24 rampas</span></div>
-    </div>
+  var rampCards = sortedRampas.map(function(g){
+    var d=desvio(g.volume), c=classeDev(d), occ=Math.round((g.volume/capacidade)*100);
+    return '<div class="smx-ramp">'+
+      '<div class="smx-ramp-name"><b>Rp '+g.rampa+'</b>'+labelRampa(g)+'</div>'+
+      '<strong>'+nf(g.volume)+' vol</strong>'+
+      '<em class="'+c+'">'+sinal(d)+'</em>'+
+      '<small>'+textoDev(d)+'</small>'+
+      '<label>Ocupação '+Math.max(0,occ)+'%</label>'+
+      '<div class="smx-bar"><i class="'+c+'" style="width:'+Math.min(Math.max(occ,3),100)+'%"></i></div>'+
+    '</div>';
+  }).join('');
 
-    <div class="sm-hero">
-      <div class="sm-hero-text">
-        <b>${qtdMov} movimentações reduzem<br>o desequilíbrio operacional em</b>
-        <strong>${ganhoRel}%</strong>
-        <span>movimentando ${nf(totalVol)} volumes em ${rampasAfetadas} rampas.</span>
-      </div>
-      <div class="sm-hero-kpis">
-        <div><small>LOJAS</small><b>${qtdMov}</b></div>
-        <div><small>RAMPAS</small><b>${rampasAfetadas}</b></div>
-        <div><small>VOLUMES</small><b>${nf(totalVol)}</b></div>
-        <div class="gain"><small>GANHO</small><b>-${ganhoRel}%</b></div>
-      </div>
-    </div>
+  var topMoves = sugs.slice().sort(function(a,b){return (b.volume||0)-(a.volume||0);}).slice(0,6);
+  if(!topMoves.length){ topMoves = [1,2,3].map(function(i){return {lojaStr:'—', rampaAtual:'—', rampaSugerida:'—', volume:0, impacto:'—', motivo:'Aguardando sugestão calculada'};}); }
+  var movementRows = topMoves.map(function(m,i){
+    var impacto = i < 2 ? 'Alto' : (i < 4 ? 'Médio' : 'Baixo');
+    var motivo = (m.motivo || '').split(';')[0] || ['Reduz pico da maior rampa','Distribui volume para rampa ociosa','Balanceamento entre setores','Melhora utilização das rampas','Ajuste fino de equalização','Pequeno ajuste operacional'][i] || 'Ajuste operacional';
+    return '<tr><td>'+(i+1)+'</td><td><b>L'+String(m.lojaBase || m.lojaStr || m.loja || '—')+'</b></td><td><span class="sm-tag red">Rp '+(m.rampaAtual||'—')+'</span><span class="sm-arrow">→</span><span class="sm-tag green">Rp '+(m.rampaSugerida||'—')+'</span></td><td><b>'+nf(m.volume)+'</b></td><td><span class="sm-impact '+(impacto==='Alto'?'high':impacto==='Médio'?'mid':'low')+'">'+impacto+'</span></td><td>'+motivo+'</td></tr>';
+  }).join('');
 
-    <div class="sm-cenarios">
-      <section>
-        <h3>CENÁRIO ATUAL <em>carregado</em></h3>
-        <div class="sm-boxgrid">
-          <div><small>MAIOR RAMPA</small><b>Rp 8</b><span>8.749 vol<br><strong class="red">pico de volume</strong></span></div>
-          <div><small>MENOR RAMPA</small><b>Rp 2</b><span>655 vol<br>menor volume</span></div>
-          <div class="wide"><small>DESEQUILÍBRIO</small><b class="big red">${deseAntes}%</b></div>
-        </div>
-      </section>
-      <section class="ok">
-        <h3>CENÁRIO SUGERIDO <em>após aplicar</em></h3>
-        <div class="sm-boxgrid">
-          <div><small>MAIOR RAMPA</small><b>Rp 8</b><span>5.411 vol<br><strong class="green">pico sugerido</strong></span></div>
-          <div><small>MENOR RAMPA</small><b>Rp 4</b><span>2.376 vol<br>menor volume</span></div>
-          <div class="wide"><small>DESEQUILÍBRIO</small><b class="big green">${deseDepois}%</b></div>
-        </div>
-      </section>
-      <section class="gain-card">
-        <small>GANHO ESTIMADO</small>
-        <b>-${ganhoRel}%</b>
-        <span>redução do desequilíbrio</span>
-        <em>${deseAntes}% → ${deseDepois}%</em>
-      </section>
-    </div>
-
-    <div class="sm-balance">
-      <h3>COMPARATIVO DO DESEQUILÍBRIO</h3>
-      <div class="sm-balance-row">
-        <b class="red">${deseAntes}%<small>ATUAL</small></b>
-        <div><i class="before" style="width:52%"></i><i class="after" style="width:48%"></i><span>100%</span></div>
-        <b class="green">${deseDepois}%<small>SUGERIDO</small></b>
-      </div>
-    </div>
-
-    <div class="sm-ramp-overview">
-      <h3>VISÃO GERAL DAS RAMPAS <span>(PÓS APLICAÇÃO)</span></h3>
-      <div class="sm-ramp-grid">${rampCards}</div>
-      <p>ⓘ Meta ideal: distribuição equilibrada entre as rampas.</p>
-    </div>
-
-    <div class="sm-moves">
-      <h3>PRINCIPAIS MOVIMENTAÇÕES SUGERIDAS</h3>
-      <table>
-        <thead><tr><th>#</th><th>LOJA</th><th>DE → PARA</th><th>VOLUMES</th><th>IMPACTO</th><th>MOTIVO</th></tr></thead>
-        <tbody>${movementRows}</tbody>
-      </table>
-    </div>
-
-    ${modo === 'completo' ? `
-    <div class="sm-conclusion">
-      <div><b>🛡️ Situação operacional</b><strong>BAIXO RISCO</strong><span>Com as movimentações sugeridas, o CD opera dentro dos parâmetros ideais.</span></div>
-      <div>✅ Nenhuma rampa acima da capacidade crítica</div>
-      <div>🎯 Gargalos operacionais eliminados</div>
-      <div>🚚 Fluxo de expedição mais eficiente</div>
-    </div>` : ''}
-  </div>`;
+  return '<div class="sm-page smx-page">'+
+    '<div class="sm-header"><div><div class="sm-title">Sugestão de Mapa Equalizado</div><div class="sm-sub">Snapshot operacional • '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})+'</div></div><div class="sm-meta"><span>📦 '+nf(totalVol)+' volumes</span><span>🛣️ '+qtdRampasComDemanda+' rampas com demanda</span></div></div>'+
+    '<div class="smx-hero"><div class="smx-hero-text"><b>'+qtdMov+' movimentações reduzem<br>o pico operacional</b><p>de <span class="red">+'+antes+'%</span> para <span class="green">+'+depois+'%</span></p><small>'+ganho+'% menos desvio da média ideal</small></div><div class="smx-kpis"><div><small>RAMPAS COM DEMANDA</small><b>'+qtdRampasComDemanda+'</b></div><div><small>VOLUME TOTAL</small><b>'+nf(totalVol)+'</b><small>volumes</small></div><div class="ideal"><small>MÉDIA IDEAL</small><b>'+nf(ideal)+'</b><small>vol/rampa</small></div><div class="gain"><small>GANHO OPERACIONAL</small><b>'+ganho+'%</b><small>menos desvio</small></div></div></div>'+ 
+    '<div class="smx-cenario-row"><section class="smx-card redline"><h3>DESVIO DA MÉDIA IDEAL <span>ATUAL</span></h3><div class="smx-pair"><div><small>MAIOR DESVIO POSITIVO</small><b>Rp '+sa.maxPos.rampa+'</b><strong>'+nf(sa.maxPos.volume)+' vol</strong><em class="red">'+sinal(sa.maxPos.dev)+'</em><label>'+textoDev(sa.maxPos.dev)+'</label></div><div><small>MAIOR DESVIO NEGATIVO</small><b>Rp '+sa.maxNeg.rampa+'</b><strong>'+nf(sa.maxNeg.volume)+' vol</strong><em class="'+classeDev(sa.maxNeg.dev)+'">'+sinal(sa.maxNeg.dev)+'</em><label>'+textoDev(sa.maxNeg.dev)+'</label></div></div><footer><small>MAIOR DESVIO ATUAL</small><b class="red">+'+antes+'%</b></footer></section>'+ 
+    '<section class="smx-card greenline"><h3>DESVIO APÓS EQUALIZAÇÃO <span>SUGERIDO</span></h3><div class="smx-pair"><div><small>MAIOR DESVIO POSITIVO</small><b>Rp '+sd.maxPos.rampa+'</b><strong>'+nf(sd.maxPos.volume)+' vol</strong><em class="'+classeDev(sd.maxPos.dev)+'">'+sinal(sd.maxPos.dev)+'</em><label>'+textoDev(sd.maxPos.dev)+'</label></div><div><small>MAIOR DESVIO NEGATIVO</small><b>Rp '+sd.maxNeg.rampa+'</b><strong>'+nf(sd.maxNeg.volume)+' vol</strong><em class="'+classeDev(sd.maxNeg.dev)+'">'+sinal(sd.maxNeg.dev)+'</em><label>'+textoDev(sd.maxNeg.dev)+'</label></div></div><footer><small>MAIOR DESVIO APÓS</small><b class="green">+'+depois+'%</b></footer></section>'+ 
+    '<section class="smx-card gainbox"><h3>GANHO OPERACIONAL</h3><b>'+ganho+'%</b><strong>menos desvio operacional</strong><p><span>+'+antes+'%</span><i>→</i><span>+'+depois+'%</span><i>=</i><span>'+ganho+'%</span></p></section></div>'+ 
+    '<div class="smx-critical-row"><div><h3>RAMPAS CRÍTICAS AGORA</h3><div class="smx-critical-grid">'+criticalCards+'</div></div><aside><h3>DISTRIBUIÇÃO GERAL</h3><div class="smx-heat">'+heat+'</div><p><b class="red">'+counts.acima+'</b> acima <b class="orange">'+counts.proximas+'</b> próximas <b class="green">'+counts.abaixo+'</b> abaixo</p></aside></div>'+ 
+    '<div class="smx-ramp-overview"><h3>VISÃO GERAL DAS RAMPAS <span>Desvio da média ideal ('+nf(ideal)+' volumes por rampa)</span></h3><div class="smx-ramp-grid">'+rampCards+'</div></div>'+ 
+    '<div class="sm-moves"><h3>PRINCIPAIS MOVIMENTAÇÕES SUGERIDAS ('+qtdMov+')</h3><table><thead><tr><th>#</th><th>LOJA</th><th>DE → PARA</th><th>VOLUME</th><th>IMPACTO</th><th>MOTIVO</th></tr></thead><tbody>'+movementRows+'</tbody></table></div>'+ 
+    '<div class="sm-conclusion"><div><b>🛡️ Situação operacional</b><strong>BAIXO RISCO</strong><span>Com as movimentações sugeridas, o CD opera dentro dos parâmetros ideais.</span></div><div>✅ Nenhuma rampa acima da capacidade crítica</div><div>🎯 Gargalos operacionais eliminados</div><div>🚚 Fluxo de expedição mais eficiente</div></div>'+ 
+    
+  '</div>';
 }
 
 
@@ -5390,8 +5612,14 @@ function renderSugestaoEqualizado(payload){
     var affectedRampas=new Set();
     sugs.forEach(function(s){affectedRampas.add(s.rampaAtual);affectedRampas.add(s.rampaSugerida);});
 
-    // Ordena por volume antes (decrescente), só com volume > 0
-    var rows=Object.values(allRampas).filter(function(r){return r.before>0||r.after>0;}).sort(function(a,b){return b.before-a.before;}).slice(0,12);
+    // Mostra TODAS as rampas configuradas no mapa operacional da tela.
+    // Não limitar com slice aqui: limite visual deve existir apenas na imagem compartilhável/resumo.
+    var rows=Object.values(allRampas).filter(function(r){return String(r.rampa)!=='?';}).sort(function(a,b){
+      var na=Number(a.rampa), nb=Number(b.rampa);
+      if(Number.isFinite(na) && Number.isFinite(nb)) return na-nb;
+      return String(a.rampa).localeCompare(String(b.rampa));
+    });
+    var rampasComVolume=rows.filter(function(r){return (r.before||0)>0 || (r.after||0)>0;}).length;
     var maxV=Math.max.apply(null,[1].concat(rows.map(function(r){return Math.max(r.before,r.after);})));
 
     function bar(vol,maxV,isAfter,isAffected){
@@ -5453,7 +5681,7 @@ function renderSugestaoEqualizado(payload){
       "<div class='sug-conferencia-print-hide' style='border-top:1px solid var(--border);padding-top:20px;margin-top:4px'>"+
       "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px'>"+
         "<div style='font-size:13px;font-weight:800;color:var(--blue-deep)'>Conferência do mapa — antes vs depois</div>"+
-        "<div style='font-size:10px;color:var(--muted)'>Mesmas rampas, ordenadas por volume atual · mov. = rampa movimentada</div>"+
+        "<div style='font-size:10px;color:var(--muted)'>Todas as rampas configuradas · "+rows.length+" exibidas · "+rampasComVolume+" com demanda · mov. = rampa movimentada</div>"+
       "</div>"+
       // Mini distribuição
       "<div style='display:grid;grid-template-columns:1fr auto 1fr;gap:10px;margin-bottom:16px;align-items:end'>"+
